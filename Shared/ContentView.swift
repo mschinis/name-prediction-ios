@@ -7,10 +7,28 @@
 
 import SwiftUI
 
+class ContentViewModel: ObservableObject {
+    @Published var age = 0
+
+    init() {}
+    
+    func increaseAge(amount: Int) {
+        age = age + amount
+    }
+}
+
 struct ContentView: View {
+    @StateObject private var viewModel = ContentViewModel()
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("\(viewModel.age)")
+                .padding()
+
+            Button("Click me") {
+                viewModel.increaseAge(amount: 5)
+            }
+        }
     }
 }
 
