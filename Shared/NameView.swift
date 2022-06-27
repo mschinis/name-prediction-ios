@@ -7,9 +7,30 @@
 
 import SwiftUI
 
+@MainActor
+class NameViewModel: ObservableObject {
+    @Published var name = ""
+    
+    init() {}
+    
+    func apiCall() {
+//        print("API Call with name: \(name)")
+//        https://api.agify.io/?name=meelad
+//        https://api.nationalize.io/?name=nathaniel
+        
+        let url = URL(string: "https://api.agify.io/?name=\(name)")!
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            print("Hello there")
+        }
+    }
+}
+
 struct NameView: View {
-    @State var name = ""
+    
     @State var toggle = false
+    @StateObject var viewModel = NameViewModel()
     
     var body: some View {
         ZStack {
@@ -31,7 +52,7 @@ struct NameView: View {
                     .foregroundColor(.black)
                     .padding(.bottom, 8)
 
-                TextField("Enter your Full Name", text: $name)
+                TextField("Enter your Full Name", text: $viewModel.name)
                     .multilineTextAlignment(.center)
                     .font(.title2)
                     .foregroundColor(.black)
@@ -39,7 +60,7 @@ struct NameView: View {
                     .frame(width: 280, height: 120)
 
                Button(action: {
-                   print("Hello World!")
+                   viewModel.apiCall()
                }) {
                    HStack {
                        Text("Predict!")
@@ -60,6 +81,5 @@ struct NameView: View {
 struct NameView_Previews: PreviewProvider {
     static var previews: some View {
         NameView()
-            .dynamicTypeSize(.xxxLarge)
     }
 }
