@@ -10,6 +10,7 @@ import SwiftUI
 @MainActor
 class NameViewModel: ObservableObject {
     @Published var name = ""
+    @Published var age: Int?
     
     init() {}
     
@@ -22,9 +23,23 @@ class NameViewModel: ObservableObject {
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print("Hello there")
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let res = try! JSONDecoder().decode(AgifyResponse.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.age = res.age
+                }
+            }
         }
+        .resume()
     }
+}
+
+struct AgifyResponse: Decodable {
+    let name: String
+    let age: Int
 }
 
 struct NameView: View {
@@ -73,6 +88,14 @@ struct NameView: View {
                    .background(LinearGradient(gradient: Gradient(colors: [Color("DarkGreen"), Color("LightGreen")]), startPoint: .leading, endPoint: .trailing))
                    .cornerRadius(40)
                }
+                if let age = viewModel.age {
+                    Text("Predicted age: \(age)")
+                        .fontWeight(.semibold)
+                        .frame(width: 428, height: 30)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                        .padding(.bottom, 8)
+                }
             }
         }
     }
