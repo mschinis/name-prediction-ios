@@ -19,15 +19,22 @@ class NameViewModel: ObservableObject {
 //        https://api.agify.io/?name=meelad
 //        https://api.nationalize.io/?name=nathaniel
         
-        let url = URL(string: "https://api.agify.io/?name=\(name)")!
-        let request = URLRequest(url: url)
+        let agifyUrl = URL(string: "https://api.agify.io/?name=\(name)")!
+        let agifyRequest = URLRequest(url: agifyUrl)
+        
+        let nationalizeUrl = URL(string: "https://api.nationalize.io/?name=\(name)")!
+        let nationalizeRequest = URLRequest(url: nationalizeUrl)
+        
         
         Task {
             do {
-                let (data, _) = try await URLSession.shared.data(for: request)
-                let res = try JSONDecoder().decode(AgifyResponse.self, from: data)
+                let (agifyData, _) = try await URLSession.shared.data(for: agifyRequest)
+                let agifyResponse = try JSONDecoder().decode(AgifyResponse.self, from: agifyData)
 
-                self.age = res.age
+                let (nationalizeData, _) = try await URLSession.shared.data(for: nationalizeRequest)
+                let nationalizeResponse = try JSONDecoder().decode(AgifyResponse.self, from: nationalizeData)
+                
+                self.age = agifyResponse.age
             } catch {
                 print("error:: \(error.localizedDescription)")
             }
