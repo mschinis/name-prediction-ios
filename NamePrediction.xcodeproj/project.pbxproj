@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D9F0C7F284A198200C7AD1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F0C7E284A198200C7AD1E /* HomeView.swift */; };
+		1D9F0C80284A198200C7AD1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F0C7E284A198200C7AD1E /* HomeView.swift */; };
+		1D9F0C81284A198200C7AD1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F0C7E284A198200C7AD1E /* HomeView.swift */; };
+		1D9F0C82284A198200C7AD1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F0C7E284A198200C7AD1E /* HomeView.swift */; };
+		1D9F0C84284A1A4F00C7AD1E /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F0C83284A1A4F00C7AD1E /* NameView.swift */; };
+		1D9F0C89284A1A8800C7AD1E /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F0C83284A1A4F00C7AD1E /* NameView.swift */; };
 		CD00A4C4284A0CBC00668CB8 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00A4C3284A0CBC00668CB8 /* Tests_iOS.swift */; };
 		CD00A4C6284A0CBC00668CB8 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00A4C5284A0CBC00668CB8 /* Tests_iOSLaunchTests.swift */; };
 		CD00A4D0284A0CBC00668CB8 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00A4CF284A0CBC00668CB8 /* Tests_macOS.swift */; };
@@ -37,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D9F0C7E284A198200C7AD1E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1D9F0C83284A1A4F00C7AD1E /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		CD00A4AB284A0CBB00668CB8 /* NamePredictionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePredictionApp.swift; sourceTree = "<group>"; };
 		CD00A4AC284A0CBB00668CB8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CD00A4AD284A0CBB00668CB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +108,8 @@
 				CD00A4AB284A0CBB00668CB8 /* NamePredictionApp.swift */,
 				CD00A4AC284A0CBB00668CB8 /* ContentView.swift */,
 				CD00A4AD284A0CBB00668CB8 /* Assets.xcassets */,
+				1D9F0C7E284A198200C7AD1E /* HomeView.swift */,
+				1D9F0C83284A1A4F00C7AD1E /* NameView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -299,6 +309,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9F0C7F284A198200C7AD1E /* HomeView.swift in Sources */,
+				1D9F0C84284A1A4F00C7AD1E /* NameView.swift in Sources */,
 				CD00A4D5284A0CBC00668CB8 /* ContentView.swift in Sources */,
 				CD00A4D3284A0CBC00668CB8 /* NamePredictionApp.swift in Sources */,
 			);
@@ -308,6 +320,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9F0C80284A198200C7AD1E /* HomeView.swift in Sources */,
+				1D9F0C89284A1A8800C7AD1E /* NameView.swift in Sources */,
 				CD00A4D6284A0CBC00668CB8 /* ContentView.swift in Sources */,
 				CD00A4D4284A0CBC00668CB8 /* NamePredictionApp.swift in Sources */,
 			);
@@ -317,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9F0C81284A198200C7AD1E /* HomeView.swift in Sources */,
 				CD00A4C6284A0CBC00668CB8 /* Tests_iOSLaunchTests.swift in Sources */,
 				CD00A4C4284A0CBC00668CB8 /* Tests_iOS.swift in Sources */,
 			);
@@ -326,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9F0C82284A198200C7AD1E /* HomeView.swift in Sources */,
 				CD00A4D2284A0CBC00668CB8 /* Tests_macOSLaunchTests.swift in Sources */,
 				CD00A4D0284A0CBC00668CB8 /* Tests_macOS.swift in Sources */,
 			);

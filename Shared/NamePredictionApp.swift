@@ -18,7 +18,7 @@ import SwiftUI
 struct NamePredictionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
