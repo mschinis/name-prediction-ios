@@ -22,18 +22,29 @@ class NameViewModel: ObservableObject {
         let url = URL(string: "https://api.agify.io/?name=\(name)")!
         let request = URLRequest(url: url)
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let res = try! JSONDecoder().decode(AgifyResponse.self, from: data)
-                
-                DispatchQueue.main.async {
-                    self.age = res.age
-                }
+        Task {
+            do {
+                let (data, _) = try await URLSession.shared.data(for: request)
+                let res = try JSONDecoder().decode(AgifyResponse.self, from: data)
+
+                self.age = res.age
+            } catch {
+                print("error:: \(error.localizedDescription)")
             }
         }
-        .resume()
+
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let data = data {
+//                let res = try! JSONDecoder().decode(AgifyResponse.self, from: data)
+//
+//                DispatchQueue.main.async {
+//                    self.age = res.age
+//                }
+//            }
+//        }
+//        .resume()
     }
 }
 
