@@ -7,29 +7,25 @@
 
 import SwiftUI
 
-
-extension Font {
-    struct Trouva {
-        static let title = Font.custom("Circular", size: 24, relativeTo: .title)
-    }
-}
-
 struct NameView: View {
     @State var name = ""
     @State var toggle = false
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient:
-                Gradient(colors:[.gray, .white]),
-                                   startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(
+                gradient: Gradient(
+                    colors:[.gray, .white]
+                ),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
             .ignoresSafeArea()
 
             VStack {
-                Spacer()
                 Text("NAME PREDICTION")
                     .fontWeight(.semibold)
-                    .font(Font.Trouva.title)
+                    .font(.title)
                     .frame(width: 428, height: 30)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.black)
@@ -37,10 +33,9 @@ struct NameView: View {
 
                 TextField("Enter your Full Name", text: $name)
                     .multilineTextAlignment(.center)
-                    .font(.system(size: 30))
+                    .font(.title2)
                     .foregroundColor(.black)
                     .disableAutocorrection(true)
-//                    .padding(.bottom, 16)
                     .frame(width: 280, height: 120)
 
                Button(action: {
@@ -57,17 +52,7 @@ struct NameView: View {
                    .background(LinearGradient(gradient: Gradient(colors: [Color("DarkGreen"), Color("LightGreen")]), startPoint: .leading, endPoint: .trailing))
                    .cornerRadius(40)
                }
-
-                Spacer()
             }
-    //        .frame(
-    //              minWidth: 0,
-    //              maxWidth: .infinity,
-    //              minHeight: 0,
-    //              maxHeight: .infinity,
-    //              alignment: .topLeading
-    //        )
-//            .background(
         }
     }
 }
