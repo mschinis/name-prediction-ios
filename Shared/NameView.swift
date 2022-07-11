@@ -55,6 +55,21 @@ class NameViewModel: ObservableObject {
 struct AgifyResponse: Decodable {
     let name: String
     let age: Int
+
+    /// Steps to write custom decoding
+    /// 1. Define CodingKeys which should have one option for each property we're decoding
+    enum CodingKeys: String, CodingKey {
+        case name, age
+    }
+
+    /// 2. Write a custom decoder, which uses the `CodingKeys` enum to decode the response
+    /// - Parameter decoder: The swift decoder provided by apple.
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        self.name = try container.decode(String.self, forKey: .name)
+        self.age = try container.decode(Int.self, forKey: .age)
+    }
 }
 
 struct GenderizeResponse: Decodable {
