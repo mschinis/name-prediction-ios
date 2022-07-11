@@ -10,6 +10,7 @@ import SwiftUI
 @MainActor
 class NameViewModel: ObservableObject {
     @Published var name = ""
+    @Published var gender: String?
     @Published var countries: [NationalizeResponse.Country] = []
     @Published var age: Int?
     
@@ -19,13 +20,16 @@ class NameViewModel: ObservableObject {
 //        print("API Call with name: \(name)")
 //        https://api.agify.io/?name=meelad
 //        https://api.nationalize.io/?name=nathaniel
+//        https://api.genderize.io/?name=luc
         
         let agifyUrl = URL(string: "https://api.agify.io/?name=\(name)")!
         let agifyRequest = URLRequest(url: agifyUrl)
         
+        let genderizeUrl = URL(string: "https://api.genderize.io/?name=\(name)")!
+        let genderizeRequest = URLRequest(url: genderizeUrl)
+        
         let nationalizeUrl = URL(string: "https://api.nationalize.io/?name=\(name)")!
         let nationalizeRequest = URLRequest(url: nationalizeUrl)
-        
         
         Task {
             do {
@@ -35,8 +39,12 @@ class NameViewModel: ObservableObject {
                 let (nationalizeData, _) = try await URLSession.shared.data(for: nationalizeRequest)
                 let nationalizeResponse = try JSONDecoder().decode(NationalizeResponse.self, from: nationalizeData)
                 
+                let (genderizeData, _) = try await URLSession.shared.data(for: genderizeRequest)
+                let genderizeResponse = try JSONDecoder().decode(GenderizeResponse.self, from: genderizeData)
+                
                 self.countries = nationalizeResponse.country
                 self.age = agifyResponse.age
+                self.gender = genderizeResponse.gender
             } catch {
                 print("error:: \(error.localizedDescription)")
             }
@@ -47,6 +55,13 @@ class NameViewModel: ObservableObject {
 struct AgifyResponse: Decodable {
     let name: String
     let age: Int
+}
+
+struct GenderizeResponse: Decodable {
+    let name: String
+    let gender: String
+    let probability: Double
+    let count: Int
 }
 
 struct NationalizeResponse: Decodable {
@@ -107,6 +122,15 @@ struct NameView: View {
                }
                 if let age = viewModel.age {
                     Text("Predicted age: \(age)")
+                        .fontWeight(.semibold)
+                        .frame(width: 428, height: 30)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                        .padding(.bottom, 8)
+                }
+                
+                if let gender = viewModel.gender {
+                    Text("Predicted gender: \(gender)")
                         .fontWeight(.semibold)
                         .frame(width: 428, height: 30)
                         .multilineTextAlignment(.center)
