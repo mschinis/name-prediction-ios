@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D4698CD289810000072FC42 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4698CC289810000072FC42 /* Models.swift */; };
+		1D4698CE289810000072FC42 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4698CC289810000072FC42 /* Models.swift */; };
+		1D4698D0289810340072FC42 /* NameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4698CF289810340072FC42 /* NameViewModel.swift */; };
+		1D4698D1289810340072FC42 /* NameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4698CF289810340072FC42 /* NameViewModel.swift */; };
+		1D4698D4289814F20072FC42 /* NameViewiOs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4698D3289814F20072FC42 /* NameViewiOs.swift */; };
+		1D4698D82898153E0072FC42 /* NameViewMacOs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4698D62898153E0072FC42 /* NameViewMacOs.swift */; };
 		1D9F0C7F284A198200C7AD1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F0C7E284A198200C7AD1E /* HomeView.swift */; };
 		1D9F0C80284A198200C7AD1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F0C7E284A198200C7AD1E /* HomeView.swift */; };
 		1D9F0C81284A198200C7AD1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F0C7E284A198200C7AD1E /* HomeView.swift */; };
@@ -43,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D4698CC289810000072FC42 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1D4698CF289810340072FC42 /* NameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewModel.swift; sourceTree = "<group>"; };
+		1D4698D3289814F20072FC42 /* NameViewiOs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewiOs.swift; sourceTree = "<group>"; };
+		1D4698D62898153E0072FC42 /* NameViewMacOs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewMacOs.swift; sourceTree = "<group>"; };
 		1D9F0C7E284A198200C7AD1E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1D9F0C83284A1A4F00C7AD1E /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		CD00A4AB284A0CBB00668CB8 /* NamePredictionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePredictionApp.swift; sourceTree = "<group>"; };
@@ -91,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D4698D2289814D10072FC42 /* NameView */ = {
+			isa = PBXGroup;
+			children = (
+				1D4698D3289814F20072FC42 /* NameViewiOs.swift */,
+				1D4698D62898153E0072FC42 /* NameViewMacOs.swift */,
+			);
+			path = NameView;
+			sourceTree = "<group>";
+		};
 		CD00A4A5284A0CBB00668CB8 = {
 			isa = PBXGroup;
 			children = (
@@ -105,11 +124,14 @@
 		CD00A4AA284A0CBB00668CB8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				1D4698D2289814D10072FC42 /* NameView */,
 				CD00A4AB284A0CBB00668CB8 /* NamePredictionApp.swift */,
 				CD00A4AC284A0CBB00668CB8 /* ContentView.swift */,
 				CD00A4AD284A0CBB00668CB8 /* Assets.xcassets */,
 				1D9F0C7E284A198200C7AD1E /* HomeView.swift */,
+				1D4698CF289810340072FC42 /* NameViewModel.swift */,
 				1D9F0C83284A1A4F00C7AD1E /* NameView.swift */,
+				1D4698CC289810000072FC42 /* Models.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -313,6 +335,9 @@
 				1D9F0C84284A1A4F00C7AD1E /* NameView.swift in Sources */,
 				CD00A4D5284A0CBC00668CB8 /* ContentView.swift in Sources */,
 				CD00A4D3284A0CBC00668CB8 /* NamePredictionApp.swift in Sources */,
+				1D4698D4289814F20072FC42 /* NameViewiOs.swift in Sources */,
+				1D4698CD289810000072FC42 /* Models.swift in Sources */,
+				1D4698D0289810340072FC42 /* NameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +349,9 @@
 				1D9F0C89284A1A8800C7AD1E /* NameView.swift in Sources */,
 				CD00A4D6284A0CBC00668CB8 /* ContentView.swift in Sources */,
 				CD00A4D4284A0CBC00668CB8 /* NamePredictionApp.swift in Sources */,
+				1D4698D82898153E0072FC42 /* NameViewMacOs.swift in Sources */,
+				1D4698CE289810000072FC42 /* Models.swift in Sources */,
+				1D4698D1289810340072FC42 /* NameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
